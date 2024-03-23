@@ -1,22 +1,18 @@
 import React from 'react'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import App from './App';
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App></App>,
-  },
-]);
+import {
+  RouterProvider,
+} from "react-router-dom";
+import { router } from './Routes/Routes';
+import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+    <HelmetProvider>
+      <div className='max-w-screen-xl mx-auto'>
+        <RouterProvider router={router} />
+      </div>
+    </HelmetProvider>
+  </React.StrictMode>,
 )
